@@ -14,7 +14,7 @@
 <script type="text/javascript" >
 	$(function() {
 		var customHomeCheck = typeof parent.defaultTreeDataJson;
-		if(customHomeCheck == 'undefined') {
+		if(customHomeCheck != 'undefined') {
 			//커스터마이징 화면	
 			$('.mstrmojo-RootView-pathbar').hide()
 		}

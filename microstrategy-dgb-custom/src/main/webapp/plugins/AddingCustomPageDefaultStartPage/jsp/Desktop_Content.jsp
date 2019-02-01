@@ -20,11 +20,12 @@
 	//System.out.println("=>" + mstrPage);
 	WebIServerSession isession = mstrPage.getWebIServerSession();
 	//System.out.println("=>" + isession);
+	request.getSession().setAttribute("mstrISession", isession);
 	
 	List<Map<String, Object>> list = MstrFolderBrowseUtil.getFolderTree(
 			isession, 
 			"D3C7D461F69C4610AA6BAA5EF51F4125", 
-			4, 
+			1, 
 			Arrays.asList(EnumDSSXMLObjectTypes.DssXmlTypeFolder, EnumDSSXMLObjectTypes.DssXmlTypeReportDefinition, EnumDSSXMLObjectTypes.DssXmlTypeDocumentDefinition)
 	);
 	
@@ -162,14 +163,16 @@ function reportLinkClick(e) {
 	
 	if (tp == "8") {
 		//폴더
-		//getFolderTreeList(oid);
+		getFolderTreeList(oid);
 		
+		/*
 		var $elem = $("ul[parentid='" + oid + "']");
 		if ($elem.is(":visible")) {
 			$elem.hide();
 		} else {
 			$elem.show();
 		}
+		*/
 		
 	} else if(tp == "3") {
 		//리포트
@@ -291,7 +294,7 @@ function getFolderTreeList(oid) {
 		        }
 		        
 		        alert(msg);
-		        //location.href('${pageContext.request.contextPath}/servlet/mstrWeb');
+		        window.location.replace('${pageContext.request.contextPath}/servlet/mstrWeb');
 		    }
 		    
 		});

@@ -20,7 +20,7 @@
 <script src="${pageContext.request.contextPath}/_custom/javascript/jquery/jquery-1.11.0.js" type="text/javascript"></script>
 <script type="text/javascript" >
 	var customHomeCheck = typeof parent.defaultTreeDataJson;
-	if(customHomeCheck == 'undefined') {
+	if(customHomeCheck != 'undefined') {
 		//커스터마이징 화면	
 		$('.mstrPathContainer').hide()
 	}
